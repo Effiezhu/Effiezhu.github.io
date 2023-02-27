@@ -8,7 +8,6 @@ random_size4 = int(p5.random(25, 125))
 # question 8
 alpha = 0
 
-
 # question 3
 def random_square(size):
     # question 2
@@ -17,7 +16,7 @@ def random_square(size):
     p5.line(10, 10, 10, 10 + size)
     p5.line(10, 10 + size, 10 + size, 10 + size)
 
-    
+
 # question 11
 def moveto(x, y):
     p5.push()
@@ -28,7 +27,7 @@ def lineto(x, y):
     p5.line(0, 0, x, y)
     p5.pop()
 
-    
+ 
 def random_square_new(size):
     moveto(10, 10)
     lineto(size, 0)
@@ -50,6 +49,7 @@ def random_square_at(x, y, size):
     p5.pop()
     
 
+
 # question 10
 def inside_square():
     if (p5.mouseX > 10) and (p5.mouseX < 10 + random_size) and (p5.mouseY > 10) and (p5.mouseY < 10 + random_size):
@@ -57,6 +57,12 @@ def inside_square():
     else:
         return False
 
+
+# question 12
+def random_square_loop(x, y, size):
+    for i in range(3):
+        p5.stroke(p5.random(0,227), p5.random(0, 100), p5.random(100, 255))
+        random_square_at(x + 40 - 5 * i, y + 40 - 5 * i, 20 + 1/3 * i * size)
 
 def setup():
     p5.createCanvas(300, 300)    # 300 x 300 pixel canvas 
@@ -89,5 +95,6 @@ def draw():
         p5.stroke(127, 200, 0)
         random_square_at(0, 150, random_size3)
     p5.stroke(255, 0, 127)
-    random_square_at(150, 150, random_size4)
+    #random_square_at(150, 150, random_size4)
+    random_square_loop(150, 150, random_size4)
 
