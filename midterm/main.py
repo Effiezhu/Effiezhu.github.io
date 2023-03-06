@@ -49,7 +49,6 @@ def random_square_at(x, y, size):
     p5.pop()
     
 
-
 # question 10
 def inside_square():
     if (p5.mouseX > 10) and (p5.mouseX < 10 + random_size) and (p5.mouseY > 10) and (p5.mouseY < 10 + random_size):
@@ -63,6 +62,7 @@ def random_square_loop(x, y, size):
     for i in range(3):
         p5.stroke(p5.random(0,227), p5.random(0, 100), p5.random(100, 255))
         random_square_at(x + 40 - 5 * i, y + 40 - 5 * i, 20 + 1/3 * i * size)
+        
 
 def setup():
     p5.createCanvas(300, 300)    # 300 x 300 pixel canvas 
