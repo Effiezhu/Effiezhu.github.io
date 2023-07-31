@@ -5,10 +5,11 @@
   <!-- Link to p5.js via CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.js"></script>
 </head>
-<body>
+<body onmouseout="switchWeave()">
   <div id="sketch-holder-1"></div>
-  <div id="sketch-holder-2" style="display: none;"></div>
-  <div id="sketch-holder-3" style="display: none;"></div>
+  <div id="sketch-holder-2"></div>
+  <div id="sketch-holder-3"></div>
+
 
   <!-- Link to your p5.js code -->
   <script src="weave1.js"></script>
@@ -16,30 +17,24 @@
   <script src="weave3.js"></script>
 
   <script>
-    var currentWeave = 1;
-    var isMouseInside = true;
-
-    window.onmouseout = function() {
-      isMouseInside = false;
-    };
-
-    window.onmouseover = function() {
-      if (!isMouseInside) {
-        isMouseInside = true;
-        switchWeave();
+    let switchTime = 0;
+    function switchToWeave() {
+      if (switchTime == 0) {
+        document.getElementById('sketch-holder-1').style.display = 'none';
+        document.getElementById('sketch-holder-2').style.display = 'block';
+        switchTime ++;
       }
-    };
-
-    function switchWeave() {
-      print(isMouseInside);
-      // Hide the current weave
-      document.getElementById('sketch-holder-' + currentWeave).style.display = 'none';
-
-      // Determine the next weave to show
-      currentWeave = currentWeave % 3 + 1;
-
-      // Show the next weave
-      document.getElementById('sketch-holder-' + currentWeave).style.display = 'block';
+      else if (switchTime == 1) {
+        document.getElementById('sketch-holder-2').style.display = 'none';
+        document.getElementById('sketch-holder-3').style.display = 'block';
+        switchTime ++;
+      }
+      else if (switchTime == 2) {
+        document.getElementById('sketch-holder-3').style.display = 'none';
+        document.getElementById('sketch-holder-1').style.display = 'block';
+        switchTime = 0;
+      }
+        
     }
   </script>
 </body>
