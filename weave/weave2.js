@@ -2,14 +2,21 @@ let sketch2 = function(p) {
     let fixed = false;
     let fixedMouseX;
     let fixedMouseY;
+    let bg;
   
     p.setup = function() {
-      let canvas = p.createCanvas(800, 500);
+      let canvas = p.createCanvas(p.windowWidth, p.windowHeight);
       canvas.parent('sketch-holder-2');
+      bg = p.loadImage('assets/weave bg.png', img => {
+        console.log("Image loaded");
+      }, err => {
+        console.error("Error loading image: ", err);
+      });
     }
   
     p.draw = function() {
       p.background(129, 181, 172); // Light Cyan
+      p.image(bg, 0, 0, p.windowWidth, p.windowHeight);
       let currentMouseX = fixed ? fixedMouseX : p.mouseX;
       let currentMouseY = fixed ? fixedMouseY : p.mouseY;
       for (let i = 0; i < 80; i++) {

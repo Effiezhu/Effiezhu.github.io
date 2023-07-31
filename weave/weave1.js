@@ -84,7 +84,7 @@ let sketch1 = function(p) {
     p.mouseMoved = function() {
       if (p.mouseX < 0 || p.mouseY < 0 || p.mouseX > p.width || p.mouseY > p.height) {
         document.getElementById('sketch-holder-1').style.display = 'none';
-        document.getElementById('sketch-holder-2').style.display = 'block';
+        document.getElementById('sketch-holder-2').style.display = 'none';
       }
     }
   }
