@@ -11,7 +11,7 @@ new p5((p) => {
       let currentMouseY = fixed ? fixedMouseY : p.mouseY;
       p.background(129, 181, 172);
   
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 100; i++) {
         drawLeftThread(0, -1 + i * 10, currentMouseX + 40, currentMouseY/2);
         drawRightThread(p.width - currentMouseX/4 - 10,-1 + i * 10, currentMouseX + 40, currentMouseY/2);
       }
