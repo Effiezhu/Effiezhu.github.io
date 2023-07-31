@@ -4,42 +4,29 @@
   <meta charset="UTF-8">
   <!-- Link to p5.js via CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.js"></script>
-  <!-- Link to your p5.js code -->
-  <script src="weave1.js"></script>
-  <script src="weave2.js"></script>
-  <script src="weave3.js"></script>
 </head>
-<body>
+<body onmouseout="switchWeave()" onmouseover="switchWeave()">
   <div id="sketch-holder-1"></div>
   <div id="sketch-holder-2" style="display: none;"></div>
   <div id="sketch-holder-3" style="display: none;"></div>
 
+  <!-- Link to your p5.js code -->
+  <script src="weave1.js"></script>
+  <script src="weave2.js"></script>
+  <script src="weave3.js"></script>
+
   <script>
-    let mouseLeaveCounter = 0;
+    var currentWeave = 1;
 
-    window.onmouseout = function() {
-      mouseLeaveCounter++;
-      changeSketch();
-    }
+    function switchWeave() {
+      // Hide the current weave
+      document.getElementById('sketch-holder-' + currentWeave).style.display = 'none';
 
-    function changeSketch() {
-      switch(mouseLeaveCounter % 3) {
-        case 0:
-          document.getElementById('sketch-holder-1').style.display = "block";
-          document.getElementById('sketch-holder-2').style.display = "none";
-          document.getElementById('sketch-holder-3').style.display = "none";
-          break;
-        case 1:
-          document.getElementById('sketch-holder-1').style.display = "none";
-          document.getElementById('sketch-holder-2').style.display = "block";
-          document.getElementById('sketch-holder-3').style.display = "none";
-          break;
-        case 2:
-          document.getElementById('sketch-holder-1').style.display = "none";
-          document.getElementById('sketch-holder-2').style.display = "none";
-          document.getElementById('sketch-holder-3').style.display = "block";
-          break;
-      }
+      // Determine the next weave to show
+      currentWeave = currentWeave % 3 + 1;
+
+      // Show the next weave
+      document.getElementById('sketch-holder-' + currentWeave).style.display = 'block';
     }
   </script>
 </body>
