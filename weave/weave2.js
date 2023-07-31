@@ -2,13 +2,20 @@ new p5((p) => {
     let fixed = false;
     let fixedMouseX;
     let fixedMouseY;
+    let bg;
   
     p.setup = function() {
       p.createCanvas(p.windowWidth, p.windowHeight);
+      bg = p.loadImage('assets/weave bg.png', img => {
+        console.log("Image loaded");
+      }, err => {
+        console.error("Error loading image: ", err);
+      });
     }
   
     p.draw = function() {
       p.background(129, 181, 172);
+      p.image(bg, 0, 0, p.windowWidth, p.windowHeight);
       let currentMouseX = fixed ? fixedMouseX : p.mouseX;
       let currentMouseY = fixed ? fixedMouseY : p.mouseY;
       for (let i = 0; i < 80; i++) {

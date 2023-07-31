@@ -1,15 +1,22 @@
 new p5((p) => {
     let fixed = false;
     let fixedMouseX, fixedMouseY;
+    let bg;
   
     p.setup = function() {
       p.createCanvas(p.windowWidth, p.windowHeight);
+      bg = p.loadImage('assets/weave bg.png', img => {
+        console.log("Image loaded");
+      }, err => {
+        console.error("Error loading image: ", err);
+      });
     };
   
     p.draw = function() {
       let currentMouseX = fixed ? fixedMouseX : p.mouseX;
       let currentMouseY = fixed ? fixedMouseY : p.mouseY;
       p.background(129, 181, 172);
+      p.image(bg, 0, 0, p.windowWidth, p.windowHeight);
   
       for (let i = 0; i < 100; i++) {
         drawLeftThread(0, -1 + i * 10, currentMouseX + 40, currentMouseY/2);
