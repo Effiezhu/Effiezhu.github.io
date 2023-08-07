@@ -13,7 +13,7 @@
 </style>
 
 </head>
-<body onmouseout="switchWeave()">
+<body>
   <div id="sketch-holder-1"></div>
   <div id="sketch-holder-2"></div>
   <div id="sketch-holder-3"></div>
@@ -24,23 +24,52 @@
   <script src="weave2.js"></script>
   <script src="weave3.js"></script>
 
-  <script>
+  <!-- <script>
     let switchTime = 0;
     function switchWeave() {
       if (switchTime == 0) {
         document.getElementById('sketch-holder-1').style.display = 'none';
+        document.getElementById('sketch-holder-2').style.display = 'block';
         switchTime ++;
       }
       else if (switchTime == 1) {
         document.getElementById('sketch-holder-2').style.display = 'none';
+        document.getElementById('sketch-holder-3').style.display = 'block';
         switchTime ++;
       }
       else if (switchTime == 2) {
         document.getElementById('sketch-holder-3').style.display = 'none';
+        document.getElementById('sketch-holder-1').style.display = 'block';
         switchTime = 0;
       }
         
     }
-  </script>
+  </script> -->
+  <script>
+    let switchTime = 0;
+    
+    function switchWeave() {
+        if (switchTime == 0) {
+            document.getElementById('sketch-holder-1').style.display = 'none';
+            document.getElementById('sketch-holder-2').style.display = 'block';
+            switchTime++;
+        } else if (switchTime == 1) {
+            document.getElementById('sketch-holder-2').style.display = 'none';
+            document.getElementById('sketch-holder-3').style.display = 'block';
+            switchTime++;
+        } else if (switchTime == 2) {
+            document.getElementById('sketch-holder-3').style.display = 'none';
+            document.getElementById('sketch-holder-1').style.display = 'block';
+            switchTime = 0;
+        }
+    }
+
+    document.body.addEventListener('mouseout', function(event) {
+        if (!event.relatedTarget && !event.toElement) {
+            switchWeave();
+        }
+    });
+</script>
+
 </body>
 </html>
