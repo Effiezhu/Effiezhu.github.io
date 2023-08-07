@@ -1,10 +1,9 @@
 new p5((p) => {
   let fixed = false;
   let fixedMouseX, fixedMouseY;
-  let bg;
 
   p.setup = function() {
-    p.createCanvas(p.windowWidth, p.windowHeight);
+    p.createCanvas(p.windowWidth - 160, p.windowHeight - 160);
   };
 
   p.draw = function() {
@@ -12,7 +11,7 @@ new p5((p) => {
     let currentMouseX = fixed ? fixedMouseX : p.mouseX;
     let currentMouseY = fixed ? fixedMouseY : p.mouseY;
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 60; i++) {
       drawLeftThread(0, -1 + i * 10, currentMouseX + 40, currentMouseY/2);
       drawRightThread(p.width - currentMouseX/4 - 10,-1 + i * 10, currentMouseX + 40, currentMouseY/2);
     }

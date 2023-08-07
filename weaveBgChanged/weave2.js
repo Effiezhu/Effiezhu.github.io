@@ -2,17 +2,16 @@ new p5((p) => {
   let fixed = false;
   let fixedMouseX;
   let fixedMouseY;
-  let bg;
 
   p.setup = function() {
-    p.createCanvas(p.windowWidth, p.windowHeight);
+    p.createCanvas(p.windowWidth - 160, p.windowHeight - 160);
   }
 
   p.draw = function() {
     p.background(192, 74, 67); // Red
     let currentMouseX = fixed ? fixedMouseX : p.mouseX;
     let currentMouseY = fixed ? fixedMouseY : p.mouseY;
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < 60; i++) {
       drawLeftThread(0, -100 + i * 15, currentMouseX, 50);
       drawRightThread(p.width - currentMouseX / 2, -100 + i * 15, currentMouseX, 50);
     }
