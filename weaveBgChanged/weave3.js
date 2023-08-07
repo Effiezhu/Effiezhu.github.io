@@ -12,7 +12,7 @@ new p5((p) => {
     let currentMouseX = fixed ? fixedMouseX : p.mouseX;
     let currentMouseY = fixed ? fixedMouseY : p.mouseY;
     for (let i = 0; i < 60; i++) {
-      drawLeftThread(0, -100 + i * 15, currentMouseX, 50);
+      drawLeftThread(0, -10 + i * 15, currentMouseX, 50);
       drawRightThread(p.width - currentMouseX / 2, -100 + i * 15, currentMouseX, 50);
     }
   }
