@@ -6,11 +6,6 @@ new p5((p) => {
   
     p.setup = function() {
       p.createCanvas(p.windowWidth, p.windowHeight);
-      bg = p.loadImage('assets/weave bg.png', img => {
-        console.log("Image loaded");
-      }, err => {
-        console.error("Error loading image: ", err);
-      });
     }
   
     p.draw = function() {
