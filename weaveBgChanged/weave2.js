@@ -10,7 +10,6 @@ new p5((p) => {
   
     p.draw = function() {
       p.background(192, 74, 67); // Red
-      p.image(bg, 0, 0, p.windowWidth, p.windowHeight);
       let currentMouseX = fixed ? fixedMouseX : p.mouseX;
       let currentMouseY = fixed ? fixedMouseY : p.mouseY;
       for (let i = 0; i < 80; i++) {
