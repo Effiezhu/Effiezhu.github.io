@@ -8,9 +8,9 @@ new p5((p) => {
   };
 
   p.draw = function() {
+    p.background(129, 181, 172);
     let currentMouseX = fixed ? fixedMouseX : p.mouseX;
     let currentMouseY = fixed ? fixedMouseY : p.mouseY;
-    p.background(129, 181, 172);
 
     for (let i = 0; i < 100; i++) {
       drawLeftThread(0, -1 + i * 10, currentMouseX + 40, currentMouseY/2);
