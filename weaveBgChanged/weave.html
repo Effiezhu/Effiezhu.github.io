@@ -29,17 +29,14 @@
     function switchWeave() {
       if (switchTime == 0) {
         document.getElementById('sketch-holder-1').style.display = 'none';
-        document.getElementById('sketch-holder-2').style.display = 'block';
         switchTime ++;
       }
       else if (switchTime == 1) {
         document.getElementById('sketch-holder-2').style.display = 'none';
-        document.getElementById('sketch-holder-3').style.display = 'block';
         switchTime ++;
       }
       else if (switchTime == 2) {
         document.getElementById('sketch-holder-3').style.display = 'none';
-        document.getElementById('sketch-holder-1').style.display = 'block';
         switchTime = 0;
       }
         
