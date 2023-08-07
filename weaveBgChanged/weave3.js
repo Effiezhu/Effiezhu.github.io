@@ -93,5 +93,5 @@ new p5((p) => {
         fixedMouseY = p.mouseY;
       }
     }
-  }, 'sketch-holder-3');
+  }, 'sketch-holder-1');
   
